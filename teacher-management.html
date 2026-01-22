@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Teachers - TimeTable Pro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Teacher Management Page -->
+    <div class="management-page">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="back-btn" onclick="navigateTo('dashboard.html')">← Dashboard</button>
+                <h1>Teacher Management</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info-trigger" onclick="toggleUserInfo()">
+                    <div class="avatar" id="avatar">P</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="management-main">
+            <!-- Stats Cards -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">👨‍🏫</div>
+                    <div class="stat-content">
+                        <h4>Total Teachers</h4>
+                        <p class="stat-value" id="totalTeachers">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <h4>Active Teachers</h4>
+                        <p class="stat-value" id="activeTeachers">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-content">
+                        <h4>Recently Added</h4>
+                        <p class="stat-value" id="recentTeachers">Today</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Teacher Button -->
+            <div class="action-bar">
+                <button class="btn btn-primary" onclick="toggleAddTeacherForm()">+ Add New Teacher</button>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search teachers...">
+            </div>
+
+            <!-- Add Teacher Form -->
+            <div id="addTeacherForm" class="management-form" style="display:none;">
+                <h3>Add New Teacher</h3>
+                <form id="teacherForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="teacherName" placeholder="Enter teacher name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teacher ID</label>
+                            <input type="text" id="teacherId" placeholder="e.g., TCH001" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="teacherEmail" placeholder="teacher@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" id="teacherSubject" placeholder="e.g., Mathematics" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" id="teacherPhone" placeholder="Enter phone number">
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select id="teacherStatus">
+                                <option>Active</option>
+                                <option>Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label>Classes Teaching</label>
+                            <input type="text" id="teacherClasses" placeholder="e.g., Class 10A, Class 10B" required>
+                        </div>
+                    </div>
+
+                    <div class="counter-display">
+                        <p>Total Teachers: <span id="formCounter">0</span></p>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">Add Teacher</button>
+                        <button type="button" class="btn btn-secondary" onclick="toggleAddTeacherForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Teachers Table -->
+            <div class="teachers-table-container">
+                <table class="management-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Classes</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="teachersTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+                <div id="emptyState" class="empty-state">
+                    <p>No teachers added yet. <a href="#" onclick="toggleAddTeacherForm()">Add your first teacher</a></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/management.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

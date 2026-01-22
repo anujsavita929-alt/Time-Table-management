@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable - TimeTable Pro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Timetable Page -->
+    <div class="timetable-page">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="back-btn" onclick="navigateTo('dashboard.html')">← Dashboard</button>
+                <h1>Full Timetable</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info-trigger" onclick="toggleUserInfo()">
+                    <div class="avatar" id="avatar">S</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="timetable-main">
+            <!-- View Options -->
+            <div class="view-options">
+                <button class="view-btn active" data-view="week">Weekly View</button>
+                <button class="view-btn" data-view="month">Monthly View</button>
+                <button class="view-btn" data-view="list">List View</button>
+            </div>
+
+            <!-- Timetable Grid - Weekly View -->
+            <div class="timetable-container">
+                <div class="timetable-scroll">
+                    <table class="timetable-grid">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-slot">09:00 - 10:00</td>
+                                <td><div class="class-slot" style="background: #E74C3C;">Mathematics<br><small>Room 101</small></div></td>
+                                <td><div class="class-slot" style="background: #27AE60;">English<br><small>Room 102</small></div></td>
+                                <td><div class="class-slot" style="background: #FF69B4;">Science<br><small>Lab 201</small></div></td>
+                                <td><div class="class-slot" style="background: #F39C12;">History<br><small>Room 103</small></div></td>
+                                <td><div class="class-slot" style="background: #E74C3C;">PE<br><small>Gym</small></div></td>
+                            </tr>
+                            <tr>
+                                <td class="time-slot">10:15 - 11:15</td>
+                                <td><div class="class-slot" style="background: #27AE60;">English<br><small>Room 102</small></div></td>
+                                <td><div class="class-slot" style="background: #FF69B4;">Science<br><small>Lab 201</small></div></td>
+                                <td><div class="class-slot" style="background: #F39C12;">History<br><small>Room 103</small></div></td>
+                                <td><div class="class-slot" style="background: #E74C3C;">Mathematics<br><small>Room 101</small></div></td>
+                                <td><div class="class-slot" style="background: #27AE60;">Art<br><small>Room 104</small></div></td>
+                            </tr>
+                            <tr>
+                                <td class="time-slot">11:30 - 12:30</td>
+                                <td><div class="class-slot" style="background: #FF69B4;">Science<br><small>Lab 201</small></div></td>
+                                <td><div class="class-slot" style="background: #F39C12;">History<br><small>Room 103</small></div></td>
+                                <td><div class="class-slot" style="background: #E74C3C;">Mathematics<br><small>Room 101</small></div></td>
+                                <td><div class="class-slot" style="background: #27AE60;">English<br><small>Room 102</small></div></td>
+                                <td><div class="class-slot" style="background: #FF69B4;">Computer<br><small>Lab 301</small></div></td>
+                            </tr>
+                            <tr>
+                                <td class="time-slot">12:30 - 13:30</td>
+                                <td colspan="5" style="text-align: center; background: #F5F5F5;"><strong>Lunch Break</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="time-slot">13:30 - 14:30</td>
+                                <td><div class="class-slot" style="background: #F39C12;">History<br><small>Room 103</small></div></td>
+                                <td><div class="class-slot" style="background: #E74C3C;">Mathematics<br><small>Room 101</small></div></td>
+                                <td><div class="class-slot" style="background: #27AE60;">English<br><small>Room 102</small></div></td>
+                                <td><div class="class-slot" style="background: #FF69B4;">Science<br><small>Lab 201</small></div></td>
+                                <td><div class="class-slot" style="background: #F39C12;">Sports<br><small>Field</small></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Timetable Legend -->
+            <div class="timetable-legend">
+                <h4>Subject Legend</h4>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #E74C3C;"></div>
+                        <span>Mathematics</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #27AE60;"></div>
+                        <span>English</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #FF69B4;"></div>
+                        <span>Science</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #F39C12;"></div>
+                        <span>History</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Downloads/Export Section -->
+            <div class="export-section">
+                <h3>Export Options</h3>
+                <div class="export-buttons">
+                    <button class="btn btn-secondary">📥 Download PDF</button>
+                    <button class="btn btn-secondary">📊 Download Excel</button>
+                    <button class="btn btn-secondary">📧 Email Schedule</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/timetable.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

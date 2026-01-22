@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Role - TimeTable Pro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Role Selection Page -->
+    <div class="role-selection-page">
+        <header class="top-bar">
+            <button class="back-btn" onclick="navigateTo('index.html')">← Back</button>
+            <h1>Choose Your Role</h1>
+        </header>
+
+        <main class="role-container">
+            <div class="role-intro">
+                <p>Select your role to get started</p>
+            </div>
+
+            <!-- 3D Role Cards with Creative Elements -->
+            <div class="roles-grid">
+                <!-- Principal Card -->
+                <div class="role-card principal-card" onclick="navigateTo('login.html?role=principal')">
+                    <div class="card-content">
+                        <div class="role-icon principal-icon">
+                            <svg viewBox="0 0 100 100" fill="none">
+                                <circle cx="50" cy="30" r="15" fill="#E74C3C"/>
+                                <path d="M50 50 Q30 70 20 90 L80 90 Q70 70 50 50" fill="#E74C3C"/>
+                                <path d="M35 45 L30 35 M65 45 L70 35" stroke="#E74C3C" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h2>Principal</h2>
+                        <p>Manage entire school operations</p>
+                        <div class="role-features">
+                            <span>✓ Full Control</span>
+                            <span>✓ Analytics</span>
+                            <span>✓ Reports</span>
+                        </div>
+                    </div>
+                    <div class="card-3d-element floating-crown"></div>
+                </div>
+
+                <!-- Teacher Card -->
+                <div class="role-card teacher-card" onclick="navigateTo('login.html?role=teacher')">
+                    <div class="card-content">
+                        <div class="role-icon teacher-icon">
+                            <svg viewBox="0 0 100 100" fill="none">
+                                <rect x="20" y="50" width="60" height="40" rx="5" fill="#F39C12"/>
+                                <circle cx="50" cy="30" r="12" fill="#F39C12"/>
+                                <path d="M45 50 L40 65 M55 50 L60 65" stroke="#F39C12" stroke-width="3"/>
+                            </svg>
+                        </div>
+                        <h2>Teacher</h2>
+                        <p>Create and manage class schedules</p>
+                        <div class="role-features">
+                            <span>✓ Class Management</span>
+                            <span>✓ Schedule Creation</span>
+                            <span>✓ Attendance</span>
+                        </div>
+                    </div>
+                    <div class="card-3d-element flying-rocket"></div>
+                </div>
+
+                <!-- Student Card -->
+                <div class="role-card student-card" onclick="navigateTo('login.html?role=student')">
+                    <div class="card-content">
+                        <div class="role-icon student-icon">
+                            <svg viewBox="0 0 100 100" fill="none">
+                                <path d="M50 10 L80 30 L80 60 Q80 75 50 85 Q20 75 20 60 L20 30 Z" fill="#27AE60"/>
+                                <circle cx="50" cy="25" r="8" fill="#27AE60"/>
+                            </svg>
+                        </div>
+                        <h2>Student</h2>
+                        <p>View your personal timetable</p>
+                        <div class="role-features">
+                            <span>✓ View Schedule</span>
+                            <span>✓ Notifications</span>
+                            <span>✓ Updates</span>
+                        </div>
+                    </div>
+                    <div class="card-3d-element submarine"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        .floating-crown {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+            clip-path: polygon(20% 0%, 30% 20%, 40% 10%, 50% 25%, 60% 10%, 70% 20%, 80% 0%, 75% 30%, 85% 35%, 50% 50%, 15% 35%, 25% 30%);
+            bottom: 10%;
+            right: 5%;
+            filter: drop-shadow(0 4px 8px rgba(231, 76, 60, 0.3));
+            animation: float 3s ease-in-out infinite, rotate 4s linear infinite;
+        }
+
+        .flying-rocket {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background: linear-gradient(135deg, #F39C12 0%, #E67E22 100%);
+            clip-path: polygon(35% 0%, 65% 0%, 85% 30%, 85% 75%, 75% 85%, 50% 95%, 25% 85%, 15% 75%, 15% 30%);
+            bottom: 15%;
+            right: 8%;
+            filter: drop-shadow(0 4px 8px rgba(243, 156, 18, 0.3));
+            animation: fly 4s ease-in-out infinite, tilt 2s ease-in-out infinite;
+        }
+
+        .submarine {
+            position: absolute;
+            width: 70px;
+            height: 40px;
+            background: linear-gradient(135deg, #27AE60 0%, #1E8449 100%);
+            border-radius: 50% 50% 40% 40%;
+            bottom: 10%;
+            right: 5%;
+            filter: drop-shadow(0 4px 12px rgba(39, 174, 96, 0.3));
+            animation: submarine-float 5s ease-in-out infinite;
+        }
+
+        .submarine::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 25px;
+            background: #1E8449;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 0 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fly {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-30px) translateX(10px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+
+        @keyframes tilt {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        @keyframes submarine-float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-15px) translateX(10px); }
+            75% { transform: translateY(-15px) translateX(-10px); }
+        }
+    </style>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

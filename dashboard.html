@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TimeTable Pro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Dashboard Page -->
+    <div class="dashboard-page">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <div class="logo-small">
+                    <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" stroke="#E74C3C" stroke-width="2"/>
+                        <path d="M20 8v12m8-4h-16" stroke="#E74C3C" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h1>TimeTable Pro</h1>
+            </div>
+
+            <div class="header-right">
+                <div class="user-info-trigger" onclick="toggleUserInfo()">
+                    <div class="avatar" id="avatar">S</div>
+                    <span class="user-name" id="userName">Student</span>
+                </div>
+
+                <div class="settings-menu">
+                    <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
+                    <div class="settings-dropdown" id="settingsDropdown" style="display:none;">
+                        <a href="#" class="settings-item">Edit Profile</a>
+                        <a href="#" class="settings-item">Notifications</a>
+                        <a href="#" class="settings-item">Preferences</a>
+                        <hr>
+                        <a href="index.html" class="settings-item logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- User Info Dropdown -->
+        <div id="userInfoPanel" class="user-info-panel" style="display:none;">
+            <div class="user-info-content">
+                <div class="user-info-avatar" id="userInfoAvatar">S</div>
+                <h3 id="userInfoName">Student Name</h3>
+                <p id="userInfoRole">Student</p>
+                <div class="user-info-details">
+                    <p><strong>Email:</strong> <span id="userInfoEmail">student@example.com</span></p>
+                    <p><strong>ID:</strong> <span id="userInfoId">STU001</span></p>
+                </div>
+                <button class="btn btn-secondary" onclick="toggleUserInfo()">Close</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Welcome Section -->
+            <section class="dashboard-section welcome-section">
+                <div class="welcome-card">
+                    <h2>Welcome back, <span id="dashboardUserName">Student</span>!</h2>
+                    <p id="greetingMessage">Good morning! Here's your schedule for today.</p>
+                    <div class="date-time">
+                        <span id="currentDate">January 22, 2026</span>
+                        <span id="currentTime">10:30 AM</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Counters Section -->
+            <section class="dashboard-section counters-section" id="countersSection" style="display:none;">
+                <h3>System Statistics</h3>
+                <div class="counters-grid">
+                    <div class="counter-card" id="studentCounterCard">
+                        <div class="counter-icon">👥</div>
+                        <h4>Total Students</h4>
+                        <div class="counter-value-large" id="studentCount">0</div>
+                        <p class="counter-update">Updated today</p>
+                    </div>
+
+                    <div class="counter-card" id="teacherCounterCard">
+                        <div class="counter-icon">👨‍🏫</div>
+                        <h4>Total Teachers</h4>
+                        <div class="counter-value-large" id="teacherCount">0</div>
+                        <p class="counter-update">Updated today</p>
+                    </div>
+
+                    <div class="counter-card" id="classCounterCard">
+                        <div class="counter-icon">📚</div>
+                        <h4>Total Classes</h4>
+                        <div class="counter-value-large" id="classCount">0</div>
+                        <p class="counter-update">Active</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timetable Preview Section -->
+            <section class="dashboard-section timetable-section">
+                <h3>Today's Schedule</h3>
+                <div class="timetable-preview">
+                    <div class="schedule-item">
+                        <div class="time">09:00 AM</div>
+                        <div class="class-info">
+                            <h4>Mathematics</h4>
+                            <p>Room 101 | Mr. Johnson</p>
+                        </div>
+                        <div class="duration">1 hour</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="time">10:15 AM</div>
+                        <div class="class-info">
+                            <h4>English</h4>
+                            <p>Room 102 | Ms. Smith</p>
+                        </div>
+                        <div class="duration">1 hour</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="time">11:30 AM</div>
+                        <div class="class-info">
+                            <h4>Science</h4>
+                            <p>Lab 201 | Dr. Brown</p>
+                        </div>
+                        <div class="duration">1 hour 30 mins</div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" onclick="navigateTo('timetable.html')">View Full Timetable</button>
+            </section>
+
+            <!-- Quick Actions Section -->
+            <section class="dashboard-section actions-section" id="actionsSection">
+                <h3>Quick Actions</h3>
+                <div class="actions-grid" id="actionButtons">
+                    <!-- Populated by JS based on role -->
+                </div>
+            </section>
+
+            <!-- Management Section (Principal/Teacher only) -->
+            <section class="dashboard-section management-section" id="managementSection" style="display:none;">
+                <h3>Management</h3>
+                <div class="management-cards">
+                    <div class="management-card" id="studentMgmtCard" onclick="navigateTo('student-management.html')">
+                        <div class="card-icon">👥</div>
+                        <h4>Manage Students</h4>
+                        <p>Add, edit, or remove students</p>
+                    </div>
+                    <div class="management-card" id="teacherMgmtCard" onclick="navigateTo('teacher-management.html')">
+                        <div class="card-icon">👨‍🏫</div>
+                        <h4>Manage Teachers</h4>
+                        <p>Add, edit, or remove teachers</p>
+                    </div>
+                    <div class="management-card" id="classMgmtCard" onclick="navigateTo('timetable.html')">
+                        <div class="card-icon">📅</div>
+                        <h4>Manage Timetable</h4>
+                        <p>Create and update schedules</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
