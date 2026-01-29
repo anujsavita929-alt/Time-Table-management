@@ -1,0 +1,21 @@
+/* Simple full-viewport canvas */
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #0b0b0f;
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loading {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 13px;
+}

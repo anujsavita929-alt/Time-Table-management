@@ -22,3 +22,22 @@ Notes:
 - For a curated free model, download a `.glb` from a site that provides redistribution permission, then add it locally.
 
 If you want, I can help fetch a free, appropriately licensed battle-axe `.glb` and add it here — tell me if you approve that step.
+
+Quick test (Three.js viewer):
+
+- Place your `.glb` model at `assets/models/model.glb` (rename as needed).
+- Open `assets/models/three-viewer.html` in a browser via a local server (file:// won't load some resources).
+
+Serve the project directory, for example:
+
+```bash
+# Python 3
+python -m http.server 8000
+
+# or (npm)
+npx http-server -c-1
+```
+
+Then open `http://localhost:8000/assets/models/three-viewer.html`.
+
+If the model doesn't appear, check Developer Tools → Console and Network to verify `model.glb` loaded and there are no CORS errors.
