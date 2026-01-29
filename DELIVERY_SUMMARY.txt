@@ -194,9 +194,6 @@ Features:
    • Pink #FF69B4 ............... Tertiary accent
    • Orange #F39C12 ............. Quaternary accent
 
-✅ NO Violet or Purple (as requested)
-
-
 💾 DATA PERSISTENCE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -368,7 +365,7 @@ LONG TERM
 1. Learn the code patterns
 2. Extend functionality
 3. Connect to backend
-4. Deploy online
+4 . Deploy online
 
 
 🎉 YOU'RE READY!

@@ -56,7 +56,7 @@ A **production-ready**, **fully functional**, **responsive web application** for
 - [x] Green (accent #27AE60)
 - [x] Pink (accent #FF69B4)
 - [x] Orange (accent #F39C12)
-- [x] NO Violet or Purple colors
+
 
 ### ✅ Layout Requirements
 - [x] Scroll-based vertical layout (top → bottom)
