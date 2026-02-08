@@ -1,0 +1,223 @@
+/* ===========================
+   CARD NAVIGATION STYLES
+   =========================== */
+
+/* Desktop position */
+.card-nav-container {
+  position: fixed;
+  top: 20px; right: 20px;
+  z-index: 9999;
+}
+
+/* Mobile position (phones and tablets) */
+@media (max-width: 768px) {
+  .card-nav-container {
+    top: 10px;
+    /* Closer to top on mobile */
+    left: 10px;
+    /* Closer to left on mobile */
+  }
+}
+
+.card-nav {
+  position: relative;
+  width: 60px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Top bar with hamburger and logo */
+.card-nav-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 12px;
+  border-radius: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-nav-top:hover {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Hamburger menu */
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger-line {
+  width: 20px;
+  height: 2px;
+  background: #E74C3C;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Logo container */
+.logo-container {
+  display: none;
+  margin: 0 8px;
+}
+
+/* CTA Button */
+.card-nav-cta-button {
+  display: none;
+  background: #E74C3C;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.card-nav-cta-button:hover {
+  background: #C0392B;
+  transform: scale(1.05);
+}
+
+/* Navigation content - hidden by default */
+.card-nav-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  margin-top: 0;
+}
+
+/* Expanded state */
+.card-nav.expanded {
+  width: 280px;
+}
+
+.card-nav.expanded .card-nav-top {
+  border-radius: 20px 20px 0 0;
+}
+
+.card-nav.expanded .logo-container {
+  display: block;
+}
+
+.card-nav.expanded .card-nav-cta-button {
+  display: block;
+}
+
+.card-nav.expanded .card-nav-content {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 0;
+}
+
+.card-nav.expanded .hamburger-line:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.card-nav.expanded .hamburger-line:last-child {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Navigation cards */
+.nav-card {
+  background: #f6f8ff;
+  padding: 16px;
+  margin: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-card:last-child {
+  border-radius: 0 0 20px 20px;
+}
+
+.nav-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-card-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-card-link:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateX(4px);
+}
+
+.nav-card-link-icon {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-nav-container {
+    top: 10px;
+    left: 10px;
+  }
+
+  .card-nav.expanded {
+    width: calc(100vw - 40px);
+    max-width: 320px;
+  }
+}
+
+/* Animation for menu items */
+.card-nav.expanded .nav-card {
+  animation: slideIn 0.3s ease forwards;
+}
+
+.card-nav.expanded .nav-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.card-nav.expanded .nav-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.card-nav.expanded .nav-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Make sure it doesn't interfere with main content */
+.card-nav-container.demo {
+  position: absolute;
+}

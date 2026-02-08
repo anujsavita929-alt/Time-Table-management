@@ -36,14 +36,16 @@ timetable-app/
 │
 ├── css/
 │   ├── styles.css              # Main styles & layout
-│   └── animations.css          # All animations
+│   ├── animations.css          # All animations
+|   └── card-nav.css  
 │
 ├── js/
 │   ├── main.js                 # Utilities & navigation
 │   ├── auth.js                 # Login & signup logic
 │   ├── dashboard.js            # Dashboard logic
 │   ├── timetable.js            # Timetable logic
-│   └── management.js           # Student/Teacher management
+│   ├── management.js           # Student/Teacher management
+|   └── card-nav.js
 │
 └── assets/                     # Images & icons (optional)
 ```
